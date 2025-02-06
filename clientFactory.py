@@ -4,6 +4,7 @@ from dotenv import load_dotenv, find_dotenv
 from openai import OpenAI
 from google import genai
 
+# Para procurar as chaves de ambiente
 _ = load_dotenv(find_dotenv())
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 GEMINI_API_KEY = os.environ.get('GEMINI_API_KEY')
@@ -12,7 +13,8 @@ class APIClient(ABC):
     @abstractmethod
     def send_request(self, question):
         pass
-    
+
+# Request para o Chat Gpt
 class ChatGptClient(APIClient):
     def send_request(self, question):
         client = OpenAI(
@@ -29,7 +31,8 @@ class ChatGptClient(APIClient):
         )
         gpt_response = completion.choices[0].message.content
         return gpt_response
-        
+
+# Requests para o Gemini
 class GeminiClient(APIClient):
     def send_request(self, question):
         client = genai.Client(api_key=GEMINI_API_KEY)

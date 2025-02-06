@@ -4,7 +4,7 @@ class Command(ABC):
     @abstractmethod
     def execute(self):
         pass
-    
+   
 class QueryLLMCommand(Command):
     def __init__(self, client, question):
         self.client = client

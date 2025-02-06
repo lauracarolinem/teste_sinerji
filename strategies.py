@@ -44,9 +44,9 @@ class StrategyContext:
     def process_responses(self, question, gpt_answer, gem_answer):
         result = self.strategy.evaluation(question, gpt_answer, gem_answer)
         if result == -1:
-            return "A resposta do GPT foi melhor"
+            return "A resposta do GPT foi mais apropriada"
         elif result == 1:
-            return "A resposta do Gemini foi melhor"
+            return "A resposta do Gemini foi mais apropriada"
         else:
             return "Empate"
         

@@ -27,7 +27,8 @@ class ChatGptClient(APIClient):
             "content": question}
             ]
         )
-        return completion.choices[0].message.content
+        gpt_response = completion.choices[0].message.content
+        return gpt_response
         
 class GeminiClient(APIClient):
     def send_request(self, question):
